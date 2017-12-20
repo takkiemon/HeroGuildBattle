@@ -30,3 +30,4 @@ sysinfo.txt
 *.apk
 *.unitypackage
 GameJam3/Builds/
+.vs/

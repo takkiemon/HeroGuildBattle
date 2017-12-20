@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TurnHolderScript : MonoBehaviour {
 
@@ -10,9 +11,12 @@ public class TurnHolderScript : MonoBehaviour {
 	// Indicates which index turn it is.
 	public int turnIndex;
 
+	// The displayed text
+	public Text playerText;
+
 	// Use this for initialization
 	void Start () {
-		
+		SetupTurn();
 	}
 
 	// Update is called once per frame
@@ -21,12 +25,17 @@ public class TurnHolderScript : MonoBehaviour {
 	}
 
 	// Moves the turnIndex to the next player and returns that player
-	public GameObject nextTurn()
+	public void NextTurn ()
 	{
 		turnIndex++;
 		if (turnIndex >= players.Count){
 			turnIndex = 0;
 		}
-		return players[turnIndex];
+		SetupTurn();
 	}
+
+	private void SetupTurn (){
+		playerText.text = players[turnIndex].name;
+	}
+
 }

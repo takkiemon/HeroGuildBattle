@@ -456,7 +456,7 @@ MonoBehaviour:
   - {fileID: 1991691722}
   - {fileID: 237315735}
   turnIndex: 0
-  playerText: {fileID: 0}
+  playerText: {fileID: 2031460561}
 --- !u!1 &721877650
 GameObject:
   m_ObjectHideFlags: 0

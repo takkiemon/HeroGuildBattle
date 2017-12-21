@@ -20,13 +20,19 @@ public class GuildBehaviorScript : MonoBehaviour {
 		
 	}
 
-    void DeployUnit()
+    public void DeployUnit()
     {
-        unitsDeployed++;
+        if (unitsDeployed < maxUnits)
+        {
+            unitsDeployed++;
+        }
     }
 
-    void CancelDeploy()
+    public void CancelDeploy()
     {
-        unitsDeployed--;
+        if (unitsDeployed > 0)
+        {
+            unitsDeployed--;
+        }
     }
 }

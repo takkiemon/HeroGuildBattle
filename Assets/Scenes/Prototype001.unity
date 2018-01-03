@@ -617,7 +617,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1a6668dc2bbb4db598ff14bc8d2279c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  players: []
+  players:
+  - {fileID: 1494217170}
+  - {fileID: 1991691722}
+  - {fileID: 237315735}
   turnIndex: 0
   playerText: {fileID: 2031460561}
 --- !u!1 &527545781

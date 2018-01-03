@@ -34,6 +34,11 @@ public class TurnHolderScript : MonoBehaviour {
 		SetupTurn();
 	}
 
+	public GameObject GetCurrentPlayer()
+	{
+		return players[turnIndex];
+	}
+
 	private void SetupTurn (){
 		playerText.text = players[turnIndex].name;
 	}

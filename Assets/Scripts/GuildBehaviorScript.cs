@@ -9,9 +9,10 @@ public class GuildBehaviorScript : MonoBehaviour {
     public int unitsDeployed;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
         maxUnits = 5;
         unitsDeployed = 0;
         gold = 10;
 	}
+	
 }

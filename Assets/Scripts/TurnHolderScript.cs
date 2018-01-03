@@ -29,7 +29,7 @@ public class TurnHolderScript : MonoBehaviour {
 	{
 		turnIndex++;
 		if (turnIndex >= players.Count){
-			turnIndex = 0;
+			SetupRound();
 		}
 		SetupTurn();
 	}
@@ -41,6 +41,17 @@ public class TurnHolderScript : MonoBehaviour {
 
 	private void SetupTurn (){
 		playerText.text = players[turnIndex].name;
+	}
+
+	private void SetupRound()
+	{
+		turnIndex = 0;
+		foreach (var player in players)
+		{
+			var guild = player.GetComponent<GuildBehaviorScript>();
+			guild.unitsDeployed = 0;
+			guild.maxUnits++;
+		}
 	}
 
 }

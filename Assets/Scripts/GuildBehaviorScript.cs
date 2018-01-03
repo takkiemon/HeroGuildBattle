@@ -14,9 +14,4 @@ public class GuildBehaviorScript : MonoBehaviour {
         unitsDeployed = 0;
         gold = 10;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

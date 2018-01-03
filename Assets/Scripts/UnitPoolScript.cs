@@ -7,7 +7,7 @@
  {
      // Indicates which index turn it is.
      public int turnIndex;
-     private GuildBehaviorScript currentPlayer;
+     private GuildBehaviorScript currentPlayerScript;
  
      // The displayed text
      public Text nrOfUnits;
@@ -24,9 +24,16 @@
      // Update is called once per frame
      void Update()
      {
-         currentPlayer = _turnHolderScript.GetCurrentPlayer().GetComponent<GuildBehaviorScript>();
-         
-         nrOfUnits.text = currentPlayer.maxUnits - currentPlayer.unitsDeployed + " heroes in Guild Hall";
-         unitsOnQuest.text = currentPlayer.unitsDeployed + " heroes on the quest";
+         currentPlayerScript = _turnHolderScript.GetCurrentPlayer().GetComponent<GuildBehaviorScript>();
+
+         if (currentPlayerScript.gold > 0)
+         {
+             nrOfUnits.text = currentPlayerScript.maxUnits - currentPlayerScript.unitsDeployed + " heroes in Guild Hall";
+             unitsOnQuest.text = currentPlayerScript.unitsDeployed + " heroes on the quest";
+         } 
+         else
+         {
+             nrOfUnits.text = "YOU DEAD SUCK";
+         }
      }
  }

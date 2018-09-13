@@ -1,30 +1,39 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+ using System.Collections.Generic;
+ using UnityEngine;
+ using UnityEngine.UI;
+ 
+ public class UnitPoolScript : MonoBehaviour
+ {
+     // Indicates which index turn it is.
+     public int turnIndex;
+     private GuildBehaviorScript currentPlayerScript;
+ 
+     // The displayed text
+     public Text nrOfUnits;
+     public Text unitsOnQuest;
+     
+     private TurnHolderScript _turnHolderScript;
+ 
+     // Use this for initialization
+     void Start()
+     {
+         _turnHolderScript = GameObject.Find("Turn Indicator").GetComponent<TurnHolderScript>();
+     }
+ 
+     // Update is called once per frame
+     void Update()
+     {
+         currentPlayerScript = _turnHolderScript.GetCurrentPlayer().GetComponent<GuildBehaviorScript>();
 
-public class UnitPoolScript : MonoBehaviour {
-    
-    // Indicates which index turn it is.
-    public int turnIndex;
-
-    // The displayed text
-    public Text nrOfUnits;
-    public Text unitsOnQuest;
-
-    // The script attached to the player
-    private GuildBehaviorScript guildStats;
-
-    // Use this for initialization
-    void Start()
-    {
-        guildStats = GameObject.Find("Player 1").GetComponent<GuildBehaviorScript>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        nrOfUnits.text = (guildStats.maxUnits - guildStats.unitsDeployed).ToString() + " heroes in Guild Hall";
-        unitsOnQuest.text = (guildStats.unitsDeployed).ToString() + " heroes on the quest";
-    }
-}
+         if (currentPlayerScript.gold > 0)
+         {
+             nrOfUnits.text = currentPlayerScript.maxUnits - currentPlayerScript.unitsDeployed + " heroes in Guild Hall";
+             unitsOnQuest.text = currentPlayerScript.unitsDeployed + " heroes on the quest";
+         } 
+         else
+         {
+             nrOfUnits.text = "YOU DEAD SUCK";
+         }
+     }
+ }

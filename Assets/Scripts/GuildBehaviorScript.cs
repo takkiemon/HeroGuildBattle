@@ -9,30 +9,10 @@ public class GuildBehaviorScript : MonoBehaviour {
     public int unitsDeployed;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
         maxUnits = 5;
         unitsDeployed = 0;
         gold = 10;
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
-    public void DeployUnit()
-    {
-        if (unitsDeployed < maxUnits)
-        {
-            unitsDeployed++;
-        }
-    }
-
-    public void CancelDeploy()
-    {
-        if (unitsDeployed > 0)
-        {
-            unitsDeployed--;
-        }
-    }
 }

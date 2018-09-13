@@ -31,3 +31,6 @@ sysinfo.txt
 *.unitypackage
 GameJam3/Builds/
 .vs/
+.idea/
+Assets/Plugins/Editor/
+Assets/Plugins/Editor.meta

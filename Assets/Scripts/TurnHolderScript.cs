@@ -16,6 +16,9 @@ public class TurnHolderScript : MonoBehaviour
     // The displayed text
     public Text playerText;
 
+    // The displayed text
+    public Text MoneyAmount;
+
     // Players deploy buttons
     public List<GameObject> playerButtons;
 
@@ -51,15 +54,11 @@ public class TurnHolderScript : MonoBehaviour
     private void SetupTurn()
     {
         var gold = players[turnIndex].GetComponent<GuildBehaviorScript>().gold;
-        if (gold > 0)
-        {
-            playerText.text = players[turnIndex].name + "(" + gold + ")";
-        }
-        else
-        {
-            playerText.text = players[turnIndex].name;
-        }
-        
+
+        MoneyAmount.text = "(" + gold + ")";
+
+        playerText.text = players[turnIndex].name;
+
         foreach (var playerButton in playerButtons)
         {
             playerButton.active = gold > 0;

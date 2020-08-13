@@ -8,10 +8,13 @@ using UnityEngine.UI;
 public class TurnHolderScript : MonoBehaviour
 {
     // List of players.
-    public List<GameObject> players;
+    public List<GuildBehaviorScript> players;
 
     // Indicates which index turn it is.
     public int turnIndex;
+
+    // Indicates which Phase it is
+    public Phase phase;
 
     // The displayed text
     public Text playerText;
@@ -25,11 +28,28 @@ public class TurnHolderScript : MonoBehaviour
     // Current Quest
     private Quest _currentQuest;
 
+    enum Phase
+    {
+        Enter,
+        Main1,
+        Tavern,
+        Plan,
+        Execution,
+        Results
+    }
+
     // Use this for initialization
     void Start()
     {
         SetupTurn();
         _currentQuest = new SimpleQuest();
+        phase = Phase.Enter;
+    }
+
+    // Move to next Phase
+    void NextPhase()
+    {
+        //phase
     }
 
     // Moves the turnIndex to the next player and returns that player
@@ -46,10 +66,12 @@ public class TurnHolderScript : MonoBehaviour
         SetupTurn();
     }
 
+    /*
     public GameObject GetCurrentPlayer()
     {
         return players[turnIndex];
     }
+    */
 
     private void SetupTurn()
     {

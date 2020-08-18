@@ -14,7 +14,7 @@ public class DeployScript : MonoBehaviour {
 	
 	public void DeployUnit()
 	{
-		var guildBehaviorScript = _turnHolderScript.GetCurrentPlayer().GetComponent<GuildBehaviorScript>();
+		var guildBehaviorScript = _turnHolderScript.GetCurrentPlayer();
 		if (guildBehaviorScript.unitsDeployed < guildBehaviorScript.maxUnits)
 		{
 			guildBehaviorScript.unitsDeployed++;

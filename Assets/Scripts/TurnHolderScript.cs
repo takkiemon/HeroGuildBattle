@@ -28,7 +28,7 @@ public class TurnHolderScript : MonoBehaviour
     // Current Quest
     private Quest _currentQuest;
 
-    enum Phase
+    public enum Phase
     {
         Enter,
         Main1,
@@ -50,12 +50,14 @@ public class TurnHolderScript : MonoBehaviour
     void NextPhase()
     {
         //phase
+        phase++;
     }
 
     // Moves the turnIndex to the next player and returns that player
     public void NextTurn()
     {
         turnIndex++;
+        NextPhase();
 
         if (turnIndex >= players.Count)
         {
@@ -65,17 +67,15 @@ public class TurnHolderScript : MonoBehaviour
 
         SetupTurn();
     }
-
-    /*
-    public GameObject GetCurrentPlayer()
+    
+    public GuildBehaviorScript GetCurrentPlayer()
     {
         return players[turnIndex];
     }
-    */
 
     private void SetupTurn()
     {
-        var gold = players[turnIndex].GetComponent<GuildBehaviorScript>().gold;
+        var gold = players[turnIndex].gold;
 
         MoneyAmount.text = "(" + gold + ")";
 

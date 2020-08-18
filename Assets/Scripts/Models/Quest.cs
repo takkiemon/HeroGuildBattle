@@ -6,6 +6,6 @@ namespace Models
     public interface Quest
     {
         // Method that rewards the given players
-        void RewardQuest(List<GameObject> players);
+        void RewardQuest(List<GuildBehaviorScript> players);
     }
 }

@@ -83,7 +83,7 @@ public class TurnHolderScript : MonoBehaviour
 
         foreach (var playerButton in playerButtons)
         {
-            playerButton.active = gold > 0;
+            playerButton.SetActive(gold > 0);
         }
     }
 

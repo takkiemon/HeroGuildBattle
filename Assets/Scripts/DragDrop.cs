@@ -35,7 +35,7 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
 	// Start is called before the first frame update
 	void Start()
     {
-        
+		canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
     }
 
     // Update is called once per frame

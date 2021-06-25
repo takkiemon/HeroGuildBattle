@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DrawCards : MonoBehaviour
 {
-    public GameObject canvasObject;
+    public GameObject playerSideObject;
     public GameObject cardFarmer;
     public GameObject cardPriest;
 
@@ -22,9 +22,13 @@ public class DrawCards : MonoBehaviour
 
     public void OnClick()
 	{
+        /*
         for (int i = 0; i < 3; i++)
 		{
-            GameObject card = Instantiate(cardFarmer, canvasObject.transform);
+            GameObject card = Instantiate(cardFarmer, playerSideObject.transform);
 		}
-	}
+        */
+        GameObject card = Instantiate(cardFarmer, playerSideObject.transform);
+        card = Instantiate(cardPriest, playerSideObject.transform);
+    }
 }

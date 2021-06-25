@@ -23,7 +23,7 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
 
 	public void OnDrop(PointerEventData eventData)
 	{
-		throw new System.NotImplementedException();
+		Debug.Log("something has been dropped on " + gameObject.name);
 	}
 
 	public void OnEndDrag(PointerEventData eventData)

@@ -12,7 +12,10 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
 	private GameObject startingZone;
 	private GameObject hoveringDropZone;
 	private Vector2 startPosition;
+	public Vector2 startingSize;
 	private bool isOverDropZone;
+	private Ray ray;
+	private RaycastHit hit;
 
 	public void OnBeginDrag(PointerEventData eventData)
 	{
@@ -21,6 +24,8 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
 		startPosition = transform.position;
 		cGroup.alpha = .5f;
 		cGroup.blocksRaycasts = false;
+		startingSize = GetComponent<RectTransform>().transform.localScale;
+		GetComponent<RectTransform>().transform.localScale *= 0.5f;
 	}
 
 	public void OnDrag(PointerEventData eventData)
@@ -38,10 +43,17 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
 	{
 		cGroup.alpha = 1f;
 		cGroup.blocksRaycasts = true;
-		if (isOverDropZone)
+		GetComponent<RectTransform>().transform.localScale = startingSize;
+		ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+		if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.GetComponent<DropSlotBehavior>() != null)
+		{
+			Debug.Log(hit.collider.gameObject.name);
+			transform.SetParent(hit.transform, false);
+		}
+		/*if (isOverDropZone)
 		{
 			transform.SetParent(hoveringDropZone.transform, false);
-		}
+		}*/
 		else
 		{
 			transform.position = startPosition;

@@ -21,7 +21,6 @@ public class DropSlotBehavior : MonoBehaviour, IDropHandler
 
     public void OnDrop(PointerEventData eventData)
     {
-        Debug.Log("something has been dropped on DA DROPSLOT");
         if (eventData.pointerDrag != null)
         {
             if (eventData.pointerDrag.gameObject.GetComponent<CardBehavior>() != null)

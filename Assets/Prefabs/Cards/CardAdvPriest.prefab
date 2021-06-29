@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1417716400766062687}
   - component: {fileID: -7847653205649181997}
   - component: {fileID: 1112324511646736722}
+  - component: {fileID: 1830278523269862500}
   m_Layer: 6
   m_Name: CardAdvPriest
   m_TagString: Untagged
@@ -106,6 +107,7 @@ MonoBehaviour:
   canvas: {fileID: 0}
   cGroup: {fileID: 2506385726649888451}
   cardTransform: {fileID: 1400636768129076151}
+  startingSize: {x: 0, y: 0}
 --- !u!61 &-7847653205649181997
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -153,3 +155,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 7
+--- !u!114 &1830278523269862500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400636768129076150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a0e2dfd3fac60a438d43914d2ec8ec1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

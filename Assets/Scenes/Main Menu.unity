@@ -742,16 +742,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 7469405155233223255, guid: 7f896fc679690eb4a87bd8cb691ccb54,
-        type: 3}
-      propertyPath: m_CellSize.x
-      value: 175
-      objectReference: {fileID: 0}
-    - target: {fileID: 7469405155233223255, guid: 7f896fc679690eb4a87bd8cb691ccb54,
-        type: 3}
-      propertyPath: m_CellSize.y
-      value: 250
-      objectReference: {fileID: 0}
     - target: {fileID: 7469405155251976040, guid: 7f896fc679690eb4a87bd8cb691ccb54,
         type: 3}
       propertyPath: m_RootOrder
@@ -760,17 +750,17 @@ PrefabInstance:
     - target: {fileID: 7469405155251976040, guid: 7f896fc679690eb4a87bd8cb691ccb54,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 251.41748
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7469405155251976040, guid: 7f896fc679690eb4a87bd8cb691ccb54,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 97.868286
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7469405155251976040, guid: 7f896fc679690eb4a87bd8cb691ccb54,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 93.974365
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7469405155251976040, guid: 7f896fc679690eb4a87bd8cb691ccb54,
         type: 3}
@@ -780,17 +770,17 @@ PrefabInstance:
     - target: {fileID: 7469405155251976040, guid: 7f896fc679690eb4a87bd8cb691ccb54,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7469405155251976040, guid: 7f896fc679690eb4a87bd8cb691ccb54,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7469405155251976040, guid: 7f896fc679690eb4a87bd8cb691ccb54,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7469405155251976040, guid: 7f896fc679690eb4a87bd8cb691ccb54,
         type: 3}
@@ -856,16 +846,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RaycastTarget
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7469405157357046920, guid: 7f896fc679690eb4a87bd8cb691ccb54,
-        type: 3}
-      propertyPath: m_CellSize.x
-      value: 175
-      objectReference: {fileID: 0}
-    - target: {fileID: 7469405157357046920, guid: 7f896fc679690eb4a87bd8cb691ccb54,
-        type: 3}
-      propertyPath: m_CellSize.y
-      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 7469405157357046921, guid: 7f896fc679690eb4a87bd8cb691ccb54,
         type: 3}

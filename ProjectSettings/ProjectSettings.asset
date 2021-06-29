@@ -630,7 +630,14 @@ PlayerSettings:
   XboxOneOverrideIdentityPublisher: 
   vrEditorSettings: {}
   cloudServicesEnabled:
+    Analytics: 1
+    Build: 0
+    Collab: 0
+    Game Performance: 0
+    Purchasing: 0
+    UDP: 0
     UNet: 1
+    Unity Ads: 0
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -644,11 +651,11 @@ PlayerSettings:
     m_VersionName: 
   apiCompatibilityLevel: 6
   activeInputHandler: 0
-  cloudProjectId: 566f46b8-5e5f-437c-9a02-3621b2f54d99
+  cloudProjectId: 2a0ff9ba-aa47-421b-ad98-3424a9ce6754
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: HeroGuildBattle (1)
-  organizationId: takkiemon_unity
+  projectName: HeroGuildBattle
+  organizationId: tak-man
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 1
   virtualTexturingSupportEnabled: 0

@@ -15,6 +15,12 @@ public class PlayerBehavior : NetworkBehaviour
 
     List<CardBehavior> cardList = new List<CardBehavior>();
 
+    public enum CardState
+	{
+        Dealt,
+        Played
+	}
+
 	public override void OnStartClient()
 	{
 		base.OnStartClient();
@@ -39,7 +45,29 @@ public class PlayerBehavior : NetworkBehaviour
     {
         GameObject card = Instantiate(cardFarmer, playerSideObject.transform);
         NetworkServer.Spawn(card, connectionToClient);
+        RpcShowCard(card, CardState.Dealt);
         card = Instantiate(cardPriest, playerSideObject.transform);
         NetworkServer.Spawn(card, connectionToClient);
+        RpcShowCard(card, CardState.Dealt);
     }
+
+    [ClientRpc]
+    void RpcShowCard(GameObject card, CardState type)
+	{
+        if (type == CardState.Dealt)
+		{
+            if (hasAuthority)
+			{
+                card.transform.SetParent(playerSideObject.transform, false);
+			}
+            else
+			{
+                card.transform.SetParent(enemyLeftObject.transform, false);
+			}
+		}
+        else if (type == CardState.Played)
+		{
+
+		}
+	}
 }

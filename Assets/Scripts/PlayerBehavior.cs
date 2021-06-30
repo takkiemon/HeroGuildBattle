@@ -51,23 +51,40 @@ public class PlayerBehavior : NetworkBehaviour
         }
     }
 
+    public void PlayCard(GameObject card)
+	{
+        CmdPlayCard(card);
+
+    }
+
+    [Command]
+    public void CmdPlayCard(GameObject card)
+	{
+        RpcShowCard(card, CardState.Played);
+	}
+
     [ClientRpc]
     void RpcShowCard(GameObject card, CardState type)
 	{
-        if (type == CardState.Dealt)
+        switch (type)
 		{
-            if (hasAuthority)
-			{
-                card.transform.SetParent(playerSideObject.transform, false);
-			}
-            else
-			{
-                card.transform.SetParent(enemyLeftObject.transform, false);
-			}
-		}
-        else if (type == CardState.Played)
-		{
-
-		}
+            case CardState.Dealt:
+                if (hasAuthority)
+                {
+                    card.transform.SetParent(playerSideObject.transform, false);
+                }
+                else
+                {
+                    card.transform.SetParent(enemyLeftObject.transform, false);
+                }
+            break;
+            case CardState.Played:
+                Debug.Log("played" + card.name);
+                //card.transform.SetParent(enemyRightObject.transform, false);
+            break;
+            default:
+                Debug.Log("switch default");
+            break;
+        }
 	}
 }

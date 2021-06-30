@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Mirror;
 
-public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler, IDropHandler
+public class DragDrop : NetworkBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler, IDropHandler
 {
 	public Canvas canvas;
 	public CanvasGroup cGroup;
 	public RectTransform cardTransform;
+	public PlayerBehavior player;
 
 	private GameObject startingZone;
 	private GameObject hoveringDropZone;
@@ -19,6 +21,7 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
 
 	public void OnBeginDrag(PointerEventData eventData)
 	{
+		if (!hasAuthority) return;
 		//transform.SetAsLastSibling();
 		startingZone = transform.parent.gameObject;
 		startPosition = transform.position;
@@ -30,20 +33,26 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
 
 	public void OnDrag(PointerEventData eventData)
 	{
+		if (!hasAuthority) return;
 		cardTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
 		transform.SetParent(canvas.transform, true);
 	}
 
 	public void OnDrop(PointerEventData eventData)
 	{
+		if (!hasAuthority) return;
 		Debug.Log("something has been dropped on " + gameObject.name);
 	}
 
 	public void OnEndDrag(PointerEventData eventData)
 	{
+		if (!hasAuthority) return;
 		cGroup.alpha = 1f;
 		cGroup.blocksRaycasts = true;
 		GetComponent<RectTransform>().transform.localScale = startingSize;
+		NetworkIdentity networkIdentity = NetworkClient.connection.identity;
+		player = networkIdentity.GetComponent<PlayerBehavior>();
+		player.PlayCard(gameObject);
 	}
 
 	// Start is called before the first frame update

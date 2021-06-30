@@ -23,7 +23,7 @@ public class DropSlotBehavior : MonoBehaviour, IDropHandler
     {
         if (eventData.pointerDrag != null)
         {
-            if (eventData.pointerDrag.gameObject.GetComponent<CardBehavior>() != null)
+            if (eventData.pointerDrag.gameObject.GetComponent<CardBehavior>().hasAuthority && eventData.pointerDrag.gameObject.GetComponent<CardBehavior>() != null)
             {
                 tempGameObject = eventData.pointerDrag.gameObject.GetComponent<CardBehavior>().gameObject;
                 tempGameObject.transform.SetParent(gameObject.transform, false);

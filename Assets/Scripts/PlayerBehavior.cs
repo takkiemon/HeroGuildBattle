@@ -13,7 +13,7 @@ public class PlayerBehavior : NetworkBehaviour
     public GameObject enemyLeftObject;
     public GameObject enemyRightObject;
 
-    List<CardBehavior> cardList = new List<CardBehavior>();
+    List<GameObject> cardList = new List<GameObject>();
 
     public enum CardState
 	{
@@ -36,19 +36,19 @@ public class PlayerBehavior : NetworkBehaviour
 	{
 		base.OnStartServer();
 
-        cardList.Add(cardFarmer.GetComponent<CardBehavior>());
-        cardList.Add(cardPriest.GetComponent<CardBehavior>());
+        cardList.Add(cardFarmer);
+        cardList.Add(cardPriest);
     }
 
     [Command]
     public void CmdDealCards()
     {
-        GameObject card = Instantiate(cardFarmer, playerSideObject.transform);
-        NetworkServer.Spawn(card, connectionToClient);
-        RpcShowCard(card, CardState.Dealt);
-        card = Instantiate(cardPriest, playerSideObject.transform);
-        NetworkServer.Spawn(card, connectionToClient);
-        RpcShowCard(card, CardState.Dealt);
+        for (int i = 0; i < 4; i++)
+        {
+            GameObject card = Instantiate(cardList[Random.Range(0, cardList.Count)], playerSideObject.transform);
+            NetworkServer.Spawn(card, connectionToClient);
+            RpcShowCard(card, CardState.Dealt);
+        }
     }
 
     [ClientRpc]

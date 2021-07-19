@@ -12,6 +12,7 @@ public class PlayerBehavior : NetworkBehaviour
     public GameObject questSlotObject;
     public GameObject enemyLeftObject;
     public GameObject enemyRightObject;
+    public GameObject enemySideObject;
 
     List<GameObject> cardList = new List<GameObject>();
 
@@ -24,11 +25,12 @@ public class PlayerBehavior : NetworkBehaviour
 	public override void OnStartClient()
 	{
 		base.OnStartClient();
-
+        
         playerSideObject = GameObject.Find("PlayerSide");
         questSlotObject = GameObject.Find("BackgroundPanel");
         enemyLeftObject = GameObject.Find("LeftOppSide");
         enemyRightObject = GameObject.Find("RightOppSide");
+        playerSideObject = GameObject.Find("EnemySide");
     }
 
     [Server]
@@ -72,10 +74,13 @@ public class PlayerBehavior : NetworkBehaviour
                 if (hasAuthority)
                 {
                     card.transform.SetParent(playerSideObject.transform, false);
+                    card.GetComponent<RectTransform>().position = Vector3.zero;
                 }
                 else
                 {
-                    card.transform.SetParent(enemyLeftObject.transform, false);
+                    //card.transform.SetParent(enemyLeftObject.transform, false);
+                    card.transform.SetParent(enemySideObject.transform, false);
+                    card.GetComponent<RectTransform>().position = Vector3.zero;
                 }
             break;
             case CardState.Played:

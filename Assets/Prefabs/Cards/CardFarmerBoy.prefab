@@ -39,7 +39,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 381, y: -159}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 350, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &557097177485130609
@@ -104,9 +104,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6786c202385d1c643965ee718ed55584, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   canvas: {fileID: 0}
   cGroup: {fileID: 5121765408511515048}
   cardTransform: {fileID: 557097177485130611}
+  player: {fileID: 0}
   startingSize: {x: 0, y: 0}
 --- !u!114 &4130096080284977193
 MonoBehaviour:
@@ -120,6 +123,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a0e2dfd3fac60a438d43914d2ec8ec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
 --- !u!114 &1659296957718767265
 MonoBehaviour:
   m_ObjectHideFlags: 0

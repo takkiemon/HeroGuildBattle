@@ -332,3 +332,12 @@ Received Import Request.
 Start importing Assets/Prefabs using Guid(dc082497c5a31f04987639f3a73457c6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ca8f43cfa08bf98a0b7aff30769aa616') in 0.012202 seconds 
   Import took 0.017591 seconds .
 
+========================================================================
+Received Import Request.
+  Time since last request: 712.491846 seconds.
+  path: Assets/Mirror/Runtime/Mirror.asmdef
+  artifactKey: Guid(30817c1a0e6d646d99c048fc403f5979) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mirror/Runtime/Mirror.asmdef using Guid(30817c1a0e6d646d99c048fc403f5979) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '546f3667ba066ecc92dea9112499892f') in 0.049310 seconds 
+  Import took 0.054966 seconds .
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file

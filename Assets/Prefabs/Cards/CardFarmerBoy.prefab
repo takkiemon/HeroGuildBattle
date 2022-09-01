@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 3708744298592095415}
   - component: {fileID: 4662294647544951247}
   - component: {fileID: 8750312174927952616}
-  - component: {fileID: 4130096080284977193}
   m_Layer: 6
   m_Name: CardFarmerBoy
   m_TagString: Untagged
@@ -107,7 +106,6 @@ MonoBehaviour:
   canvas: {fileID: 0}
   cGroup: {fileID: 5121765408511515048}
   cardTransform: {fileID: 557097177485130611}
-  startingSize: {x: 0, y: 0}
 --- !u!61 &4662294647544951247
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -155,15 +153,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 7
---- !u!114 &4130096080284977193
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 557097177485130610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a0e2dfd3fac60a438d43914d2ec8ec1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

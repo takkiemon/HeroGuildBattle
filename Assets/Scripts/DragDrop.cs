@@ -44,6 +44,33 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
 		cGroup.alpha = 1f;
 		cGroup.blocksRaycasts = true;
 		GetComponent<RectTransform>().transform.localScale = startingSize;
+		ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+		if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.GetComponent<DropSlotBehavior>() != null)
+		{
+			Debug.Log(hit.collider.gameObject.name);
+			transform.SetParent(hit.transform, false);
+		}
+		/*if (isOverDropZone)
+		{
+			transform.SetParent(hoveringDropZone.transform, false);
+		}*/
+		else
+		{
+			transform.position = startPosition;
+			transform.SetParent(startingZone.transform);
+		}
+	}
+
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
+		isOverDropZone = true;
+		hoveringDropZone = collision.gameObject;
+	}
+
+	private void OnCollisionExit2D(Collision2D collision)
+	{
+		isOverDropZone = false;
+		hoveringDropZone = null;
 	}
 
 	// Start is called before the first frame update
